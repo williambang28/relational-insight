@@ -25,7 +25,8 @@ const Chat = () => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = (message: String) => {
+  const handleSend = async (message: String) => {
+
     if (!message.trim()) return;
 
     const userMessage = {
@@ -42,24 +43,49 @@ const Chat = () => {
     setMessages((prev) => [...prev, userMessage]);
     setIsTyping(true);
 
-    setTimeout(() => {
+    try {
+      // Send user message to the backend for processing
+      const response = await fetch("/api/ruleBasedAI", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          messages: [{ content: message }],
+        }),
+      });
+
+      const data = await response.json();
+
       const botMessage = {
         props: {
           model: {
-            message: generateResponse(message),
+            message: data.message || "Sorry, I didn't get that.",
             sender: "Relational Insight",
             direction: "incoming",
             position: "single",
           },
         },
       };
-      setMessages((prev) => [...prev, botMessage]);
-      setIsTyping(false);
-    }, 1000);
-  };
 
-  const generateResponse = (input: String) => {
-    return `Received your message - "${input}"`;
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error:", error);
+      const errorMessage = {
+        props: {
+          model: {
+            message: `Sorry, something went wrong. error: ${error}`,
+            sender: "Relational Insight",
+            direction: "incoming",
+            position: "single",
+          },
+        },
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsTyping(false);
+    }
   };
 
   return (
