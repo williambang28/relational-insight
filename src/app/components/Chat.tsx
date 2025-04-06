@@ -61,7 +61,7 @@ const Chat = () => {
       const botMessage = {
         props: {
           model: {
-            message: data.message || "Sorry, I didn't get that.",
+            message: data.message,
             sender: "Relational Insight",
             direction: "incoming",
             position: "single",
