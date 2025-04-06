@@ -34,10 +34,16 @@ function addRule(userInput: string, responseMessage: string) {
   engine.addRule(rule);
 }
 
+// lower is higher priority, first within priority is higher
 const rules = [
   {
     keywords: ['hello', 'hi', 'hey'],
     response: 'Hi there! How can I assist you today?',
+    priority: 2,
+  },
+  {
+    keywords: ['see you later'],
+    response: 'I will see you later! I am always here to help!',
     priority: 2,
   },
   {
@@ -52,39 +58,45 @@ const rules = [
   },
 ];
 
-function getBestResponses(words: string[]): string[] {
-  const matched = rules
-    .map(rule => {
-      const matched = rule.keywords.some(word => words.includes(word));
-      return matched ? { response: rule.response, priority: rule.priority } : null;
-    })
-    .filter(Boolean) as { response: string, priority: number }[];
-
-  if (matched.length === 0) return [];
-
-  const highestPriority = Math.min(...matched.map(m => m.priority));
-  return matched
-    .filter(m => m.priority === highestPriority)
-    .map(m => m.response);
-}
-
+  function getBestResponses(message: string): string[] {
+    const matched = rules
+      .map(rule => {
+        // Check if any phrase exists as a substring in the user message
+        const matched = rule.keywords.some(phrase => {
+          return message.includes(phrase);
+        });
+        return matched ? { response: rule.response, priority: rule.priority } : null;
+      })
+      .filter(Boolean) as { response: string, priority: number }[];
+  
+    if (matched.length === 0) return [];
+  
+    // Find the highest priority match
+    const highestPriority = Math.min(...matched.map(m => m.priority));
+  
+    // Return only the first response with the highest priority
+    const bestMatch = matched
+      .filter(m => m.priority === highestPriority)
+      .slice(0, 1) // Take only the first match
+      .map(m => m.response);
+  
+    return bestMatch;
+  }
+  
 
 export async function POST(request: Request) {
   try {
-
     const { messages }: { messages: Array<{ content: string }> } = await request.json();
+    const userMessage = messages?.[0]?.content || '';
 
-    const userMessage = preProcess(messages?.[0]?.content || '');
-    console.log(userMessage);
+    console.log('User message:', userMessage);
 
     if (!userMessage) {
       return new Response('No user message found', { status: 400 });
     }
 
+    // Get best responses based on the full message
     const matchedResponses = getBestResponses(userMessage);
-
-    // Define facts based on user message
-    const facts = { userMessage };
 
     if (matchedResponses.length > 0) {
       return new Response(JSON.stringify({ message: matchedResponses.join(' ') }), {
@@ -92,16 +104,19 @@ export async function POST(request: Request) {
       });
     }
 
-    // Run the rules engine
+    // If no match is found, proceed with the rules engine (optional)
+    const facts = { userMessage };
     const results = await engine.run(facts);
     const output = results.events
-      .map((event) => event.params?.message) // Safely access params and message
-      .filter((message) => message !== undefined); // Filter out undefined messages
+      .map((event) => event.params?.message)
+      .filter((message) => message !== undefined);
 
     console.log('Rules engine results:', output);
 
-    // Return the response (you can adjust this as per your needs)
-    return new Response(JSON.stringify({ message: output[0] || "Sorry, I didn't understand that." }), { status: 200 });
+    return new Response(
+      JSON.stringify({ message: output[0] || "Sorry, I didn't understand that." }),
+      { status: 200 }
+    );
   } catch (error) {
     return new Response('An error occurred while processing your request', { status: 500 });
   }
