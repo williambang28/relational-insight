@@ -1,0 +1,23 @@
+[
+    {
+      "keywords": ["hello", "hi", "hey"],
+      "response": "Hi there! How can I assist you today?",
+      "priority": 2
+    },
+    {
+        "keywords": ["see you later"],
+        "response": "I will see you later!",
+        "priority": 2
+      },
+    {
+      "keywords": ["bye", "goodbye"],
+      "response": "Goodbye! Have a great day!",
+      "priority": 2
+    },
+    {
+      "keywords": ["thanks", "thank you"],
+      "response": "You're welcome!",
+      "priority": 1
+    }
+  ]
+  

@@ -1,4 +1,6 @@
 import { Engine } from 'json-rules-engine';
+import fs from 'fs';
+import path from 'path';
 
 // Initialize the rules engine
 const engine = new Engine();
@@ -35,37 +37,31 @@ function addRule(userInput: string, responseMessage: string) {
 }
 
 // lower is higher priority, first within priority is higher
-const rules = [
-  {
-    keywords: ['hello', 'hi', 'hey'],
-    response: 'Hi there! How can I assist you today?',
-    priority: 2,
-  },
-  {
-    keywords: ['see you later'],
-    response: 'I will see you later! I am always here to help!',
-    priority: 2,
-  },
-  {
-    keywords: ['bye', 'goodbye', 'see you'],
-    response: 'Goodbye! Have a great day!',
-    priority: 2,
-  },
-  {
-    keywords: ['thanks', 'thank you'],
-    response: 'You’re welcome! Let me know if you need anything else.',
-    priority: 1,
-  },
-];
+function loadRulesFromFile(filePath: string) {
+  try {
+    const rulesFilePath = path.resolve(process.cwd(), filePath);
+    const fileContent = fs.readFileSync(rulesFilePath, 'utf-8');
+    const rules = JSON.parse(fileContent);  // Parse as JSON if it's a JSON file
+    return rules;
+  } catch (error) {
+    console.error('Error reading prompts file:', error);
+    return [];
+  }
+}
+
+// Example: Load rules from prompts.txt
+const rules = loadRulesFromFile('public//prompts.json');
 
   function getBestResponses(message: string): string[] {
     const matched = rules
-      .map(rule => {
+      .map((rule: { keywords: string[]; response: String; priority: Number; }) => {
         // Check if any phrase exists as a substring in the user message
-        const matched = rule.keywords.some(phrase => {
-          return message.includes(phrase);
-        });
-        return matched ? { response: rule.response, priority: rule.priority } : null;
+        if (rule){
+          const matched = rule.keywords.some(phrase => {
+            return message.includes(phrase);
+          });
+          return matched ? { response: rule.response, priority: rule.priority } : null;
+        }
       })
       .filter(Boolean) as { response: string, priority: number }[];
   
