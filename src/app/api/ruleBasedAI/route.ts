@@ -11,7 +11,9 @@ function preProcess(input: string): string[] {
     .replace(/&nbsp;/g, ' ') // replace HTML non-breaking space
     .replace(/[^a-z0-9 ]/gi, '') // remove any non-alphanumeric characters
     .replace(/\b(don't|dont)\b/g, 'do not') // Replace "don't" or "do not" with "do not"
+    .replace(/\b(won't|wont)\b/g, 'will not')
     .replace(/\b(can't|cant)\b/g, 'cannot') 
+    .replace(/\b(shouldn't|shouldnt)\b/g, 'should not') 
     .split(/\s+/) // Split into words
     .filter(Boolean); // Remove empty strings
 }
@@ -54,13 +56,14 @@ const rules = loadRulesFromFile('public/prompts.json');
 
 function getBestResponses(message: string): string[] {
   const matched = rules
-    .map((rule: { keywords: string[]; response: String; priority: Number; }) => {
-      if (rule) {
-        const matched = rule.keywords.some(phrase => {
-          return message.includes(phrase);
-        });
-        return matched ? { response: rule.response, priority: rule.priority } : null;
-      }
+    .map((rule: { keywords: string[]; response: string; priority: number }) => {
+      const matched = rule.keywords.some((phrase) => {
+        // Create a regex with word boundaries around the full phrase
+        const escapedPhrase = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // Escape regex special characters
+        const regex = new RegExp(`\\b${escapedPhrase}\\b`, 'i');
+        return regex.test(message);
+      });
+      return matched ? { response: rule.response, priority: rule.priority } : null;
     })
     .filter(Boolean) as { response: string, priority: number }[];
 
@@ -70,7 +73,7 @@ function getBestResponses(message: string): string[] {
 
   const bestMatch = matched
     .filter(m => m.priority === highestPriority)
-    .slice(0, 1) // Take only the first match
+    .slice(0, 1)
     .map(m => m.response);
 
   return bestMatch;
