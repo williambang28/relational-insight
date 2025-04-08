@@ -15,7 +15,7 @@ const Chat = () => {
     {
       props: {
         model: {
-          message: "Hello! How can I assist you today?",
+          message: "Hello! How was your day?",
           sender: "Relational Insight",
           direction: "incoming",
           position: "single",

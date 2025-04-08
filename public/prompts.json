@@ -1,23 +1,102 @@
 [
-    {
-      "keywords": ["hello", "hi", "hey"],
-      "response": "Hi there! How can I assist you today?",
-      "priority": 2
-    },
-    {
-        "keywords": ["see you later"],
-        "response": "I will see you later!",
-        "priority": 2
-      },
-    {
-      "keywords": ["bye", "goodbye"],
-      "response": "Goodbye! Have a great day!",
-      "priority": 2
-    },
-    {
-      "keywords": ["thanks", "thank you"],
-      "response": "You're welcome!",
-      "priority": 1
-    }
-  ]
-  
+  {
+    "keywords": ["hello", "hi", "hey"],
+    "response": "Hi there!",
+    "priority": 4
+  },
+  {
+    "keywords": ["see you later"],
+    "response": "I will see you later!",
+    "priority": 4
+  },
+  {
+    "keywords": ["bye"],
+    "response": "Goodbye! Have a great day!",
+    "priority": 4
+  },
+  {
+    "keywords": ["thank"],
+    "response": "You're welcome!",
+    "priority": 4
+  },
+  {
+    "keywords": ["need space", "need time alone", "want space", "need distance", "need my space"],
+    "response": "It's natural to need space sometimes. Consider reflecting on what triggered this need - was it feeling overwhelmed by closeness? Remember that healthy relationships balance connection with independence. Maybe communicate your need for space clearly with a timeframe, which can help your partner feel secure while respecting your boundaries.",
+    "priority": 2
+  },
+  {
+    "keywords": ["do not need anyone", "better off alone", "prefer being alone", "rather be alone", "rather alone", "prefer alone", "alone time"],
+    "response": "While independence is valuable, humans are naturally social beings. Consider if this thought might be protecting you from potential hurt. Try identifying one small way to safely connect with someone this week - perhaps sharing something minor but meaningful. This can help build comfort with healthy interdependence without feeling overwhelmed.",
+    "priority": 3
+  },
+  {
+    "keywords": ["showing emotions is weak", "hate showing feelings", "do not show emotion", "keep feelings to myself", "hide my feelings"],
+    "response": "Emotions are actually valuable signals that help us understand ourselves better. Consider practicing identifying your feelings in private first - what are you experiencing and where do you feel it in your body? This self-awareness can help you become more comfortable with emotions without immediately having to share them with others.",
+    "priority": 3
+  },
+  {
+    "keywords": ["shut down when", "shut down during", "shut down in conversation", "freeze up when", "emotionally disconnect", "emotionally shut down"],
+    "response": "Shutting down is often a protective response when emotions feel overwhelming. Try noticing early warning signs of this pattern - perhaps tension in your body or a desire to leave. When you notice these signals, taking a brief, labeled break ('I need 10 minutes to collect my thoughts') can help you remain present without completely disconnecting.",
+    "priority": 2
+  },
+  {
+    "keywords": ["they want too much", "asking too much", "too needy", "too clingy", "so clingy", "so needy", "smothering me"],
+    "response": "It's important to have boundaries. Consider whether this person is actually making excessive demands or if there's discomfort with normal closeness. Try identifying specific behaviors that feel overwhelming rather than labeling the whole person as 'too much.' This clarity helps set precise boundaries while still maintaining connection.",
+    "priority": 2
+  },
+  {
+    "keywords": ["relationships are draining", "relationships drain me", "relationships exhaust me", "tired of relationships", "relationships are exhausting"],
+    "response": "Relationships do require energy, but they shouldn't consistently deplete you. Reflect on which specific interactions or expectations feel most draining. Could you create small rituals of self-care before and after social interactions? This helps maintain your energy while still allowing for meaningful connection.",
+    "priority": 2
+  },
+  {
+    "keywords": ["do not like confrontation", "do not like conflict", "avoid conflict", "hate arguments", "hate fighting", "cannot handle conflict", "cannot handle conflict", "avoid confrontation"],
+    "response": "Avoiding conflict often stems from past experiences where conflicts felt dangerous or unresolvable. Try reframing disagreements as opportunities for understanding rather than threats. Practice expressing small disagreements in low-stakes situations to build confidence that conflict doesn't have to mean relationship damage.",
+    "priority": 1
+  },
+  {
+    "keywords": ["getting close scares me", "afraid of getting close", "scared of intimacy", "fear intimacy", "afraid of intimacy", "intimacy makes me uncomfortable", "closeness makes me uncomfortable"],
+    "response": "Fear of intimacy often stems from past experiences where vulnerability led to hurt. Consider identifying one small way to practice emotional closeness that feels safe - perhaps sharing a minor concern with someone trustworthy. Gradually building these experiences can help create evidence that intimacy can be safe.",
+    "priority": 3
+  },
+  {
+    "keywords": ["focus on their flaws", "finding faults", "notice everything wrong", "always find problems", "look for reasons to leave", "find reasons to break up"],
+    "response": "Focusing on flaws can sometimes be a protective mechanism to create emotional distance. Try the balanced perspective exercise - for every flaw you notice, challenge yourself to identify two positive qualities in the same person. This helps train your mind to maintain a more realistic view rather than a purely critical one.",
+    "priority": 2
+  },
+  {
+    "keywords": ["feel trapped", "feeling trapped", "feel suffocated", "feeling suffocated", "feel cornered", "feeling cornered"],
+    "response": "These feelings often arise when boundaries feel threatened. Consider whether you need to strengthen your personal boundaries or if you're perceiving threats that aren't actually there. Creating small 'breathing spaces' in your relationships - scheduled alone time that your partner knows about - can help reduce feelings of being trapped.",
+    "priority": 2
+  },
+  {
+    "keywords": ["cannot trust", "do not trust", "hard to trust", "difficult to trust", "trust issues"],
+    "response": "Trust concerns often have valid origins in past experiences. Consider starting with small trust exercises - letting someone make a minor decision for you or sharing a small vulnerability. Building trust gradually through progressive positive experiences can help create new evidence that not everyone will hurt you.",
+    "priority": 3
+  },
+  {
+    "keywords": ["panic when they get close", "anxiety when close", "anxious when intimate", "uncomfortable with closeness", "uncomfortable with intimacy", "uncomfortable"],
+    "response": "Physical responses like panic or anxiety during closeness are common with avoidant attachment. Try grounding techniques when you notice these feelings - focus on 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste. This helps stay present rather than getting overwhelmed.",
+    "priority": 2
+  },
+  {
+    "keywords": ["push people away", "keep people at distance", "keep everyone at distance", "dont let people in", "don't let people in", "do not let people in", "keep people away", "push away"],
+    "response": "Creating distance is often a protective measure that once served a purpose but might now be limiting. Consider the unintended consequences of this pattern - is it also preventing desired connections? You might experiment with allowing one trusted person slightly closer than usual, noticing both your fears and what actually happens when you do.",
+    "priority": 3
+  },
+  {
+    "keywords": ["deactivate", "deactivating", "emotionally withdraw", "withdraw emotionally", "pull back when", "pull away when", "withdraw"],
+    "response": "Emotional withdrawal or 'deactivating' happens when attachment systems get overwhelmed. Try tracking these patterns - what specific situations trigger this response? Once identified, prepare self-soothing strategies in advance for these scenarios, like deep breathing or brief timeouts, to help stay engaged rather than fully withdrawing.",
+    "priority": 3
+  },
+  {
+    "keywords": ["independence", "independence is important", "need independence", "value my independence", "scared of dependence", "fear dependence", "afraid of depending"],
+    "response": "Independence is indeed valuable, but healthy relationships involve interdependence - a balance of self-reliance and mutual support. Try the small request exercise: practice making one small request for help each week, even if you could do it yourself. This builds comfort with healthy dependence without feeling overwhelmed.",
+    "priority": 2
+  },
+  {
+    "keywords": ["sabotage relationships", "ruin relationships", "destroy relationships", "end things when", "break up when things", "leave when"],
+    "response": "Relationship sabotage often happens when things start feeling too real or vulnerable. Next time you feel the urge to end things, try applying the 48-hour rule - wait two days before making any decision. During this time, write down both your fears and what you value about the relationship to gain perspective beyond the immediate impulse.",
+    "priority": 3
+  }
+]
