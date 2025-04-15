@@ -1,9 +1,9 @@
 import React from 'react';
-import Chat from './components/Chat';
+import ChatSwitcher from './components/ChatSwitcher';
 
 const Page: React.FC = () => (
   <div>
-    <Chat />
+    <ChatSwitcher />
   </div>
 );
 

@@ -10,12 +10,13 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const Chat = () => {
+const ChatSwitcher = () => {
+  const [useLLM, setUseLLM] = useState(false);
   const [messages, setMessages] = useState([
     {
       props: {
         model: {
-          message: "Hello! Whats on your mind?",
+          message: "Hello! What's on your mind?",
           sender: "Relational Insight",
           direction: "incoming",
           position: "single",
@@ -25,14 +26,13 @@ const Chat = () => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = async (message: String) => {
-
+  const handleSend = async (message: string) => {
     if (!message.trim()) return;
 
     const userMessage = {
       props: {
         model: {
-          message: String(message),
+          message,
           sender: "User",
           direction: "outgoing",
           position: "single",
@@ -44,15 +44,14 @@ const Chat = () => {
     setIsTyping(true);
 
     try {
-      // Send user message to the backend for processing
-      const response = await fetch("/api/ruleBasedAI", {
+      const response = await fetch(useLLM ? "/api/LLM" : "/api/ruleBased", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include",
         body: JSON.stringify({
           messages: [{ content: message }],
+          prompt: message, // LLM needs `prompt`, ruleBased might just use `messages`
         }),
       });
 
@@ -61,7 +60,7 @@ const Chat = () => {
       const botMessage = {
         props: {
           model: {
-            message: data.message,
+            message: data.message || data.response || "No response.",
             sender: "Relational Insight",
             direction: "incoming",
             position: "single",
@@ -75,7 +74,7 @@ const Chat = () => {
       const errorMessage = {
         props: {
           model: {
-            message: `Sorry, something went wrong. error: ${error}`,
+            message: `Sorry, something went wrong. Error: ${error}`,
             sender: "Relational Insight",
             direction: "incoming",
             position: "single",
@@ -90,19 +89,54 @@ const Chat = () => {
 
   return (
     <div style={{ position: "relative" }}>
+      <div style={{ padding: "0.5rem" }}>
+        <label>
+          <input
+            type="checkbox"
+            checked={useLLM}
+            onChange={() => {
+              setUseLLM((prev) => !prev);
+              setMessages([
+                {
+                  props: {
+                    model: {
+                      message: "Hello! What's on your mind?",
+                      sender: "Relational Insight",
+                      direction: "incoming",
+                      position: "single",
+                    },
+                  },
+                },
+              ]);
+            }}
+            style={{ marginRight: "0.5rem" }}
+          />
+          {useLLM ? "Using LLM" : "Using Rule-Based"}
+        </label>
+      </div>
+
       <MainContainer>
         <ChatContainer>
-          <MessageList style={{ height: "500px" }} typingIndicator={isTyping && <TypingIndicator content="Thinking..." />}>
+          <MessageList
+            style={{ height: "500px" }}
+            typingIndicator={
+              isTyping && <TypingIndicator content="Thinking..." />
+            }
+          >
             {messages.map((m, i) => (
               // @ts-ignore
               <Message key={i} {...m.props} />
             ))}
           </MessageList>
-          <MessageInput placeholder="Type message here" attachButton={false} onSend={handleSend} />
+          <MessageInput
+            placeholder="Type message here"
+            attachButton={false}
+            onSend={handleSend}
+          />
         </ChatContainer>
       </MainContainer>
     </div>
   );
 };
 
-export default Chat;
+export default ChatSwitcher;

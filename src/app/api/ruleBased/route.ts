@@ -19,28 +19,6 @@ function preProcess(input: string): string[] {
     .filter(Boolean); // Remove empty strings
 }
 
-// function addRule(userInput: string, responseMessage: string) {
-//   const rule = {
-//     conditions: {
-//       any: [
-//         {
-//           fact: 'userMessage',
-//           operator: 'in',
-//           value: userInput.toLowerCase(),
-//         },
-//       ],
-//     },
-//     event: {
-//       type: 'response',
-//       params: {
-//         message: responseMessage,
-//       },
-//     },
-//   };
-
-//   engine.addRule(rule);
-// }
-
 function loadRulesFromFile(filePath: string) {
   try {
     const rulesFilePath = path.resolve(process.cwd(), filePath);
