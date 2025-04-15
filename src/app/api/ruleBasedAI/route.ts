@@ -14,6 +14,7 @@ function preProcess(input: string): string[] {
     .replace(/\b(won't|wont)\b/g, 'will not')
     .replace(/\b(can't|cant)\b/g, 'cannot') 
     .replace(/\b(shouldn't|shouldnt)\b/g, 'should not') 
+    .replace(/\b(didn't)\b/g, 'did not')
     .split(/\s+/) // Split into words
     .filter(Boolean); // Remove empty strings
 }
