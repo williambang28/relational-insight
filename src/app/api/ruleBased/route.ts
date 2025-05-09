@@ -15,6 +15,7 @@ function preProcess(input: string): string[] {
     .replace(/\b(can't|cant)\b/g, 'cannot') 
     .replace(/\b(shouldn't|shouldnt)\b/g, 'should not') 
     .replace(/\b(didn't)\b/g, 'did not')
+    .replace(/\b(they'll)\b/g, 'they will')
     .split(/\s+/) // Split into words
     .filter(Boolean); // Remove empty strings
 }
@@ -89,7 +90,7 @@ export async function POST(request: Request) {
     console.log('Rules engine results:', output);
 
     return new Response(
-      JSON.stringify({ message: output[0] || "Sorry, I didn't understand that. I specialise in avoidance." }),
+      JSON.stringify({ message: output[0] || "Sorry, I didn't understand that. I specialise in attachment." }),
       { status: 200 }
     );
   } catch (error) {

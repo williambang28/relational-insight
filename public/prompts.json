@@ -1,112 +1,134 @@
 [
   {
     "keywords": ["hello", "hi", "hey"],
-    "response": "Hi there!",
+    "response": "Hey there!",
     "priority": 6
   },
   {
     "keywords": ["see you later"],
-    "response": "I will see you later!",
+    "response": "See you later.",
     "priority": 6
   },
   {
     "keywords": ["bye"],
-    "response": "Goodbye! Have a great day!",
+    "response": "Goodbye.",
     "priority": 6
   },
   {
     "keywords": ["thank"],
-    "response": "You're welcome!",
+    "response": "Of course — I’m really glad that I could support you.",
     "priority": 6
   },
+
+
+
   {
-    "keywords": ["doing it on my own", "choosing myself", "i only trust myself"],
-    "response": "It sounds like you’re really focused on self-reliance right now. That’s a strength — but sometimes it can come from a deeper belief like, 'People will let me down.' Try reflecting on this: Have there been moments when accepting support helped you? For example, letting a friend help you move or open up during a hard time. You don’t have to give up your independence to also allow support.",
+    "keywords": ["feel really close", "feel close", "feel safe", "can be myself", "vulnerable and safe"],
+    "response": "That sense of safety and closeness is a sign of real connection. When you feel like you can show up as your full self, it usually means the relationship is giving both comfort and room to grow.",
+    "priority": 5
+  },
+  {
+    "keywords": ["worked through", "solved together", "talked it out"],
+    "response": "Being able to move through conflict together builds trust. It’s not about avoiding problems, but knowing you can face them as a team.",
+    "priority": 5
+  },
+  {
+    "keywords": ["peaceful alone", "enjoy time alone", "do not mind being alone"],
+    "response": "Appreciating solitude is a powerful sign of inner steadiness. It’s not about needing distance — it’s about choosing calm when you need it.",
+    "priority": 5
+  },
+  {
+    "keywords": ["feel worthy of love", "deserve love", "still loved"],
+    "response": "That’s a grounded truth — being imperfect never makes you unworthy. Love that sees the whole of you is the kind that heals.",
+    "priority": 5
+  },
+  {
+    "keywords": ["parents did their best", "parents weren't perfect but"],
+    "response": "Recognizing both the effort and the limits in your parents can be a sign of emotional maturity. It helps you hold compassion without ignoring your own needs.",
+    "priority": 5
+  },
+
+
+
+  {
+    "keywords": ["they are not texting me back", "texting them and overthinking"],
+    "response": "That urge to check in might be your way of seeking reassurance. Instead of judging yourself for it, try asking: What would help me feel secure right now — even if they’re quiet?",
     "priority": 4
   },
   {
-    "keywords": ["reflection", "self-awareness", "i’ve been reflecting a lot"],
-    "response": "Noticing more about yourself can bring up a lot of feelings. When something stands out to you, try writing it out in three parts: what happened, what you thought, and how it made you feel. For example, 'I didn’t text them back → They’ll think I don’t care → I feel guilty.' This can help you spot patterns and decide if those thoughts are true or helpful.",
+    "keywords": ["I care more", "always love more", "feel like i do everything"],
+    "response": "Feeling like you carry more weight in the relationship can be exhausting. It’s okay to want reciprocity — it doesn’t make you needy, it makes you human.",
     "priority": 4
   },
   {
-    "keywords": ["do not need anyone", "better off alone", "i’m fine by myself"],
-    "response": "That feeling might be a kind of emotional armor — to avoid getting hurt or let down. One thing you can try is this: next time someone offers to help or check in, just say yes once and see how it feels. You might be surprised. You’re still in control, but you’re collecting new evidence, not just protecting against old pain.",
+    "keywords": ["try to be perfect", "do not want them to leave", "prove i am worth it"],
+    "response": "Trying to earn love through perfection often hides a quiet fear: that who you are isn’t enough. You don’t need to shrink yourself to be chosen — you already are.",
+    "priority": 4
+  },
+  {
+    "keywords": ["someone i love pulls away", "hate distance", "they feel far away"],
+    "response": "That surge of panic when they feel distant is your nervous system bracing for loss. Try grounding yourself in something stable: a memory of closeness, a breath, your own worth.",
+    "priority": 4
+  },
+  {
+    "keywords": ["tell me they will never leave", "want reassurance"],
+    "response": "Longing for someone to promise they’ll stay makes sense — especially if you’ve felt abandoned before. Try gently giving yourself that reminder too: 'I am not being left behind. I am here.'",
+    "priority": 4
+  },
+
+
+
+  {
+    "keywords": ["do not see the point in talking about feelings", "feelings do not change anything"],
+    "response": "It’s true that talking doesn’t always fix things. But sometimes, naming a feeling gives it less power — it becomes something you can hold, not something that holds you.",
     "priority": 3
   },
   {
-    "keywords": ["cannot trust", "trust issues", "don’t trust anyone"],
-    "response": "If trust feels hard, you might be holding the belief 'People always hurt me.' That makes sense if you’ve been let down before. Think of one small way to test trust — like sharing something low-stakes with someone and seeing how they respond. It’s okay to rebuild it slowly and on your terms.",
+    "keywords": ["deal with things on my own", "people complicate it", "prefer to deal with things on my own"],
+    "response": "You’ve learned to rely on yourself — and that’s valid. But sometimes, letting someone in doesn’t add chaos — it offers clarity you didn’t know you needed.",
     "priority": 3
   },
   {
-    "keywords": ["push people away", "keep people at distance"],
-    "response": "That might be a way to protect yourself from disappointment. Ask yourself: 'What do I think will happen if I let them in?' For example, if you’re canceling plans because you fear they’ll leave anyway — notice that thought. Then test it. Let someone in a little and see if your prediction actually comes true.",
+    "keywords": ["try not to think too much", "do not think about relationships", "don’t focus on emotions"],
+    "response": "It’s okay to tuck those thoughts away sometimes. But even if you ignore them, your body still holds them. A gentle check-in might reveal what’s quietly asking for attention.",
     "priority": 3
   },
   {
-    "keywords": ["deactivate", "emotionally withdraw", "numb"],
-    "response": "Sometimes shutting down emotionally is your mind’s way of saying 'too much.' Next time you feel that way, try noting what happened just before — like someone asking how you’re feeling, or a memory popping up. You can then ask, 'What am I avoiding right now?' You don’t have to fix it, just name it.",
+    "keywords": ["do not trust opening up", "hard for me to trust"],
+    "response": "Worrying that openness could hurt makes sense if it’s ever been used against you. Start small — not all truths need to be shared, but a little trust can soften that wall.",
     "priority": 3
   },
   {
-    "keywords": ["sabotage relationships", "end things when", "i always ruin things"],
-    "response": "If you notice yourself pulling away just when things are going well, you might be acting on fear, not facts. Try delaying action. For example, if you want to break things off today, wait 48 hours and write down both the fear and a reason you might stay. This gives you room to make clearer choices.",
+    "keywords": ["not used to sharing", "sharing is hard"],
+    "response": "Opening up can feel unfamiliar — even risky. You don’t have to pour everything out. Just naming *that* truth is a powerful beginning.",
+    "priority": 3
+  },
+
+
+
+  {
+    "keywords": ["get close but feel trapped", "connection suffocates", "i am suffocating"],
+    "response": "Feeling both drawn to and overwhelmed by closeness can be confusing. Try asking yourself, 'What feels safe about this connection? What feels scary?' You deserve both clarity and compassion.",
     "priority": 3
   },
   {
-    "keywords": ["getting close scares me", "fear intimacy"],
-    "response": "Getting close can feel risky if you’re used to protecting yourself. One way to practice safely is to share something small — like how your day actually went — and notice what happens. You’re not committing to total vulnerability, just testing what feels safe.",
+    "keywords": ["run away from people or beg", "torn between leaving and clinging"],
+    "response": "That emotional tug-of-war can be exhausting. In moments like that, anchor yourself in a third option: pausing. Not leaving. Not chasing. Just pausing long enough to listen to what you need.",
     "priority": 3
   },
   {
-    "keywords": ["showing emotions is weak", "don’t want to cry", "i hate being vulnerable"],
-    "response": "Many people are taught to hide emotions, but feeling them is human, not weak. Next time you feel tears or emotion coming up, try saying, 'This is part of me being real, not broken.' Even just writing down what you're feeling is a powerful step toward self-trust.",
+    "keywords": ["pushing people away"],
+    "response": "That push-pull pattern is often a way to protect your heart. If you notice the urge to push, try slowing down instead. You might find there’s more space between fear and action than you thought.",
     "priority": 3
   },
   {
-    "keywords": ["need space", "need distance", "just want time alone"],
-    "response": "Needing space is valid — it doesn’t mean you’re pushing someone away. Try saying, 'I just need a little time to reset, not because something’s wrong, but because it helps me be present later.' For example, taking a quiet walk before replying to messages can help you regulate and return more grounded.",
-    "priority": 2
+    "keywords": ["connection feels dangerous", "love feels scary", "want connection but it always feels dangerous"],
+    "response": "When connection feels like both safety and threat, your nervous system is holding two truths. You’re allowed to want love *and* take your time rebuilding trust in it.",
+    "priority": 3
   },
   {
-    "keywords": ["independence", "scared of dependence", "afraid of relying on others"],
-    "response": "Depending on someone doesn’t erase your independence — it just means you're human. Try this: ask someone you trust for a tiny favor, like advice on what to eat or help deciding something. Notice how it feels to receive without giving up control.",
-    "priority": 2
-  },
-  {
-    "keywords": ["shut down", "emotionally disconnect", "turn cold"],
-    "response": "That shutting down might be your nervous system protecting you. Next time, try checking in with yourself: 'Am I overwhelmed or just trying not to feel?' Even pausing for 30 seconds and naming your emotion — like 'I feel tense' — can help you stay present instead of numb.",
-    "priority": 2
-  },
-  {
-    "keywords": ["they want too much", "they’re too clingy"],
-    "response": "It’s okay to feel overwhelmed by someone else’s energy. But before labeling them, try identifying what *you* need. For example: 'I need a full hour to myself after work before I can talk.' Then express that clearly. Boundaries help you stay connected, not push people away.",
-    "priority": 2
-  },
-  {
-    "keywords": ["focus on flaws", "find reasons to break up", "notice what’s wrong"],
-    "response": "When you’re used to looking for what's wrong, it might be self-protection. Try this exercise: for every flaw you notice, write down two neutral or positive things about them. Example: 'They interrupt sometimes' → 'They also check in on me and are consistent.' This helps balance your perspective.",
-    "priority": 2
-  },
-  {
-    "keywords": ["feel trapped", "feel suffocated"],
-    "response": "Feeling trapped might mean your nervous system is sensing a loss of freedom. Try creating small moments of choice — like picking when and how to hang out — and see if that reduces the pressure. It’s about finding breathing space, not cutting ties.",
-    "priority": 2
-  },
-  {
-    "keywords": ["panic when close", "anxiety with intimacy"],
-    "response": "That anxious feeling might be your body reacting faster than your mind. Try the 5-4-3-2-1 grounding exercise: name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. This calms your system so you can decide how close you *want* to be, not just react.",
-    "priority": 2
-  },
-  {
-    "keywords": ["relationships are draining", "i get exhausted", "they take too much"],
-    "response": "That might be your body telling you that your boundaries aren’t clear yet. After a conversation or hangout, try rating your energy from 1 to 10. If it drops below 5, reflect: Did I say yes when I meant no? Did I hold back emotions? Adjusting that helps restore balance.",
-    "priority": 2
-  },
-  {
-    "keywords": ["do not like conflict", "do not like confrontation", "do not like arguing", "do not like fighting", "avoid conflict", "afraid to speak up"],
-    "response": "A lot of people fear conflict because it feels unsafe. Start small — think of something low-stakes like, 'I’d prefer sushi over pizza tonight.' Practice saying it calmly. You don’t need to argue — just state your preference. The goal isn’t winning, it’s showing up for yourself.",
-    "priority": 1
+    "keywords": ["love equals fear", "can’t separate love and pain", "love and fear are the same"],
+    "response": "If love and fear feel entwined, it’s not because you’re broken — it might be because early love came with pain. You’re not doomed to repeat that. With time, love can become gentler.",
+    "priority": 3
   }
 ]

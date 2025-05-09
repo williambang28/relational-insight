@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       messages: [
         {
           role: "system",
-          content: "You are a therapist helping a young adult navigate emotional maturity. Be insightful and concise. You specialise in avoidant attachment",
+          content: "",
         },
         {
           role: "user",
