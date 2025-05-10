@@ -1,6 +1,7 @@
 import { Engine } from 'json-rules-engine';
 import fs from 'fs';
 import path from 'path';
+import { prepareStackTrace } from 'postcss/lib/css-syntax-error';
 
 // Initialize the rules engine
 const engine = new Engine();
@@ -9,13 +10,17 @@ function preProcess(input: string): string[] {
   return input
     .toLowerCase()
     .replace(/&nbsp;/g, ' ') // replace HTML non-breaking space
-    .replace(/[^a-z0-9 ]/gi, '') // remove any non-alphanumeric characters
+    .replace(/[-–—]/g, ' ') // Replace hyphens, en-dashes, em-dashes with space
+    .replace(/[^a-z0-9' ]/gi, '') // remove any non-alphanumeric characters
     .replace(/\b(don't|dont)\b/g, 'do not') // Replace "don't" or "do not" with "do not"
     .replace(/\b(won't|wont)\b/g, 'will not')
     .replace(/\b(can't|cant)\b/g, 'cannot') 
     .replace(/\b(shouldn't|shouldnt)\b/g, 'should not') 
-    .replace(/\b(didn't)\b/g, 'did not')
-    .replace(/\b(they'll)\b/g, 'they will')
+    .replace(/\b(didn't|didnt)\b/g, 'did not')
+    .replace(/\b(they'll|theyll)\b/g, 'they will')
+    .replace(/\b(weren't|werent)\b/g, 'were not')
+    .replace(/\b(they're|theyre)\b/g, 'they are')
+    .replace(/\b(i'm|im)\b/g, 'i am')
     .split(/\s+/) // Split into words
     .filter(Boolean); // Remove empty strings
 }
@@ -72,7 +77,7 @@ export async function POST(request: Request) {
 
     // Preprocess the user message before matching
     const preProcessedMessage = preProcess(userMessage);
-
+    console.log(preProcessedMessage)
     const matchedResponses = getBestResponses(preProcessedMessage.join(' '));
 
     if (matchedResponses.length > 0) {

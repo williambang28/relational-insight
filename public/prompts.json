@@ -28,7 +28,7 @@
     "priority": 5
   },
   {
-    "keywords": ["worked through", "solved together", "talked it out"],
+    "keywords": ["worked it through", "solved together", "talked it out"],
     "response": "Being able to move through conflict together builds trust. It’s not about avoiding problems, but knowing you can face them as a team.",
     "priority": 5
   },
@@ -43,7 +43,7 @@
     "priority": 5
   },
   {
-    "keywords": ["parents did their best", "parents weren't perfect but"],
+    "keywords": ["parents did their best", "parents were not perfect but"],
     "response": "Recognizing both the effort and the limits in your parents can be a sign of emotional maturity. It helps you hold compassion without ignoring your own needs.",
     "priority": 5
   },
@@ -79,7 +79,7 @@
 
 
   {
-    "keywords": ["do not see the point in talking about feelings", "feelings do not change anything"],
+    "keywords": ["do not really see the point in talking about feelings", "feelings do not change anything"],
     "response": "It’s true that talking doesn’t always fix things. But sometimes, naming a feeling gives it less power — it becomes something you can hold, not something that holds you.",
     "priority": 3
   },
