@@ -3,16 +3,15 @@ import fs from 'fs';
 import path from 'path';
 import { prepareStackTrace } from 'postcss/lib/css-syntax-error';
 
-// Initialize the rules engine
 const engine = new Engine();
 
 function preProcess(input: string): string[] {
   return input
     .toLowerCase()
-    .replace(/&nbsp;/g, ' ') // replace HTML non-breaking space
-    .replace(/[-–—]/g, ' ') // Replace hyphens, en-dashes, em-dashes with space
-    .replace(/[^a-z0-9' ]/gi, '') // remove any non-alphanumeric characters
-    .replace(/\b(don't|dont)\b/g, 'do not') // Replace "don't" or "do not" with "do not"
+    .replace(/&nbsp;/g, ' ') 
+    .replace(/[-–—]/g, ' ') 
+    .replace(/[^a-z0-9' ]/gi, '')
+    .replace(/\b(don't|dont)\b/g, 'do not') 
     .replace(/\b(won't|wont)\b/g, 'will not')
     .replace(/\b(can't|cant)\b/g, 'cannot') 
     .replace(/\b(shouldn't|shouldnt)\b/g, 'should not') 
@@ -21,8 +20,8 @@ function preProcess(input: string): string[] {
     .replace(/\b(weren't|werent)\b/g, 'were not')
     .replace(/\b(they're|theyre)\b/g, 'they are')
     .replace(/\b(i'm|im)\b/g, 'i am')
-    .split(/\s+/) // Split into words
-    .filter(Boolean); // Remove empty strings
+    .split(/\s+/) 
+    .filter(Boolean); 
 }
 
 function loadRulesFromFile(filePath: string) {
